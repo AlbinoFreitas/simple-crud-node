@@ -1,0 +1,34 @@
+<% include ../partials/header.ejs %>
+
+<main role="main" class="container">
+
+    <div class="starter-template">
+        <h1>CRUD Project</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" value="<%= person.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="birth">Birth</label>
+                    <input type="date" class="form-control" id="birth" name="birth"  placeholder="1997-11-03" value="<%= person.birth.toLocaleDateString() %>">
+                </div>
+                <div class="form-group">
+                    <label for="job">Job Title</label>
+                    <input type="text" class="form-control" id="job" name="job" placeholder="Web Designer" value="<%= person.job %>">
+                </div>
+                <div class="btn-group float-right" role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-success pr-10">Save</button>
+                    <a href="/people" class="btn btn-danger">Return</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main><!-- /.container -->
+
+<% include ../partials/footer %>

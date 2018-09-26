@@ -1,0 +1,36 @@
+<% include ../partials/header.ejs %>
+
+<main role="main" class="container">
+
+  <div class="starter-template">
+    <h1>CRUD Project</h1>
+    <a href="people/create" class="btn btn-success offset-md-10">New Person</a>
+  </div>
+
+  <table class="table table-hover table-bordered">
+      <thead>
+          <tr>
+            <td class="text-center">Name</td>
+            <td class="text-center">Job Title</td>
+            <td class="text-center">Actions</td>
+          </tr>
+      </thead>
+      <tbody>
+          <% people.map(people => {%>
+          <tr>
+            <td><%= people.name %></td>
+            <td><%= people.job %></td>
+            <td class="text-center">
+              <div class="btn-group center" role="group" aria-label="Basic example">
+                <a class="btn btn-primary" href="/people/update/<%= people.id %>" role="button">Edit</a>
+                <a class="btn btn-danger" href="people/delete/<%= people.id %>" role="button" onclick="return confirm('Do you really want to delete?')" >Delete</a>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+  </table>
+
+</main><!-- /.container -->
+
+<% include ../partials/footer %>
