@@ -1,4 +1,5 @@
 const people = require('../models/people')
+const moment = require('moment')
 
 const index = async(connection, req, res) => {
     const results = await people.findAll(connection)
@@ -21,6 +22,7 @@ const createPerson = async(connection, req, res) => {
 
 const updatePersonForm = async(connection, req, res) => {
     const results = await people.findById(connection, req.params.id)
+    results.birth = moment(results.birth).format('YYYY-MM-DD')
     res.render('people/update', { person: results })
 }
 
